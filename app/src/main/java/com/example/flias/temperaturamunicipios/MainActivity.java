@@ -25,11 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String TAG = "Datos colombia";
     private RecyclerView rv;
     private RecyclerViewAdaptador adaptadorMunicipio;
-    private CardView cv;
-    private int color;
 
-
-    private Random randomGenerator = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         rv = (RecyclerView) findViewById(R.id.rv);
-        cv = (CardView) findViewById(R.id.cv);
+
         rv.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -78,14 +74,6 @@ public class MainActivity extends AppCompatActivity {
                         Municipio m = (Municipio) milista.get(i);
                         adaptadorMunicipio = new RecyclerViewAdaptador(milista);
                         rv.setAdapter(adaptadorMunicipio);
-
-
-
-
-
-
-
-
 
                     }
                 } else {

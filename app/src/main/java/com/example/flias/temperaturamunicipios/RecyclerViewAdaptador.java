@@ -1,5 +1,6 @@
 package com.example.flias.temperaturamunicipios;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.flias.temperaturamunicipios.models.Municipio;
 
 import java.util.List;
@@ -22,6 +25,8 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
 
         public static class ViewHolder extends  RecyclerView.ViewHolder{
             private TextView departamento , numero;
+            private CardView cv;
+            private ImageView image;
 
 
             public ViewHolder(View itemView) {
@@ -29,6 +34,11 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
 
                 departamento =(TextView)itemView.findViewById(R.id.departamento);
                 numero =(TextView)itemView.findViewById(R.id.numero);
+                cv =(CardView) itemView.findViewById(R.id.cv);
+                image =(ImageView) itemView.findViewById(R.id.imageView);
+
+
+
 
 
 
@@ -50,6 +60,9 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
+
+            YoYo.with(Techniques.FlipInX).playOn(holder.cv);
+            YoYo.with(Techniques.SlideInRight).playOn(holder.image);
         holder.departamento.setText(lista.get(position).getDepartamento());
         holder.numero.setText(lista.get(position).getNumerodesmovilizados());
 
